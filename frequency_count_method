@@ -1,0 +1,95 @@
+
+Sum(A, n) 
+{
+  s = 0; ------------------------ -> 1 unit of time
+  for (i = 0; i < n; i++) -- -> i = 0 - 1 unit of time, i++ - n times; i < n - n + 1 times. So in sum there is 2 * (n + 1), but const = 1, so there is n + 1 as a result
+  {
+    s = s + A[i]; -------- -> n times
+  }
+  
+  return s; ---- -> 1 time
+}
+
+f(n) = 2 * n + 3 or O(n)
+
+
+Space:
+
+A - n
+n - 1
+s - 1
+i - 1
+-------
+S(n) = n + 3
+O(n)
+
+
+
+Add(A, B, n)
+{
+  for (i = 0; i < n; i++) ------ -> n + 1 time
+  {
+    for (j = 0; j < n; j++) --------- -> n * (n + 1)
+    {  
+      C[i, j] = A[i, j] + B[i, j] --------- -> n * n
+    }
+  }
+}
+
+
+f(n) = 2n^2 + 2n + 1
+O(n^2)
+
+
+space:
+A - n^2
+B - n^2
+C - n^2
+n - 1
+i - 1
+j - 1
+---------
+
+S(n) = 3 * n^3 + 3
+O(n^2)
+
+
+Multiply(A, B, n)
+{
+  for (i = 0; i < n; i++) ------ -> n + 1 time
+  {
+    for (j = 0; j < n; j++) --------- -> n * (n + 1)
+    {  
+      C[i, j] = 0; ----------------- -> n * n * 
+      
+      for (k = 0; k < n; k++) --------- -> n * n * (n + 1)
+    {
+      C[i, j] = C[i,j] +  A[i, j] * B[i, j] --------- -> n * n * n
+    }
+  }
+}
+
+
+f(n) = 2n^3 + 3n^2 + 2n + 1
+O(n^3)
+
+space:
+A - n ^ 3
+B - n ^ 3
+C - n ^ 3
+n - 1
+i - 1
+j - 1
+k - 1
+------------
+S(n) = 3n^2 + 4
+O(n^3)
+
+
+
+
+
+
+
+
+

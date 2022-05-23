@@ -1,0 +1,46 @@
+Characteristics of Algorithm:
+
+1) Input - every algorightm has an input value (0+)
+
+2) Output - every algorithm has to generate at least 1 output value
+
+3) Definiteness - algorithm has to produce kind of final value (sqrt(4) is not a final value)
+
+4) Finiteness - algorithm must stop at 1 moment (server does not)
+
+5) Efectiness - ...
+
+
+Criterias of an algorithm:
+
+1) Time
+
+2) Space
+
+3) Network consumption (data transfer)
+
+4) Power consumption
+
+5) CPU Registers (if it is low level algorithm)
+
+Algorithm effectiveness measures
+
+ - Time analysis:  1 simple operation (aka +, -, =) gets 1 unit of time. Algorithm x = 5 * a + 6 * b will take 4 units of time (+, 2* and =) or 1 unit of time. It depends on the level of your point of analyze
+
+
+ - Space analyzes: 1 unit(word) per assigning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
