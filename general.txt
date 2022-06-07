@@ -32,6 +32,68 @@ Algorithm effectiveness measures
 
 
 
+Huffman algorithm allows to reduce a size of the message
+How does it work: 
+msg: ABCADDDD
+
+1) calculate how many times each letter occur
+A - 2
+B - 1
+C - 1
+D - 4
+
+2) Create an algorithm from the tree
+		           8
+		          /  \
+        	0 /    \
+		        /      \
+	        4        \
+	      /   \       \
+  	   /	    \ 1     \   1
+     /	      \       \
+	0  /	       2        \
+	  /	      /   \       \
+  /    0 /	      \ 1    \
+	/	     /	        \      \
+	2(A)	 1(B) 	    1(C)    4(D)
+
+So codes:
+
+A - 00
+B - 010
+C - 011
+D - 1
+
+Collect this codes to the message. And u have to send table with codes. 
+
+
+Graph: 
+		
+	1-----2
+	|     |
+	|     |
+	|     |
+	3-----4
+
+Spanning tree:
+	
+	1------2
+	|
+	|
+	|
+	3------4
+
+There are 2 algorithms that allow to find the least cost way from the 1 graph spike to another: 
+
+Prims - choose the least cost way that connected to exists spikes
+Kruskals - choost the least cost way that does not create circular graph
+
+Dijkstra algorithm - allows to find shortest path from one spike of a graph to another
+U get the cheapest road and at the next step get the cheapest point of the last points and get new cheapest way/ 
+
+
+
+	
 
 
 
