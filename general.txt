@@ -97,6 +97,45 @@ U get the cheapest road and at the next step get the cheapest point of the last 
 
 
 
+Graph Traversal (BFS & DFS)
+
+https://www.youtube.com/watch?v=pcKY4hjDrxk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=61
+
+BFS: take any vertex as first, then visit all vortexes around first vertex in any order and so on. 
+DFS: take any vertex, then exporing next vertex (only 1). If next vertex does not contain children then come back to the 
+previous vertex and continue the exploration of the previous vertex. 
+
+https://www.youtube.com/watch?v=jFZsDDB0-vo&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=62
+Articulation point - if there is a vertex in a graph, which removing will disconnect graph into 2 components than that 
+vertex in called an articulation point 
+
+		
+			1
+		       / \
+		      /   \
+		     4     2
+		      \    /
+		       \  /
+			 3 - articulation point
+		        / \
+		       /   \
+		      7     6
+
+
+In a graph it is not a desirable structure. The easies way to remove an articulation point is connect different 
+vertexes with an edge (4 with 7 here, for example)
+
+Usually DFS is used to find out an articulation point. 
+
+
+Backtracking - brute force approach (try all solutions and use that one that is suitable for u)
+
+
+
+
+
+
+
 
 
 
