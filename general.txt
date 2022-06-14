@@ -120,6 +120,20 @@ vertex in called an articulation point
 		        / \
 		       /   \
 		      7     6
+		      
+		      
+		      
+https://www.youtube.com/watch?v=dQr4wZCiJJ4&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=67
+Hamiltonial cycle -  a cycle that visit each vertex only once. There is always O(n^n), so there is no easy way to run 
+thorugh the Hamiltonial cycle. Cycle does not change if u choose just another entering vertex (1, 2, 3, 1) is same to the 
+(2, 3, 1, 2). Hamiltonial cycle can not exists if there is an articulation point in a graph.
+
+Stack is used for BFS and queue for DFS
+
+Least cost - pick node with the least cost (whereas BFS use the last node and DFS - the first in the queue)
+
+ 
+
 
 
 In a graph it is not a desirable structure. The easies way to remove an articulation point is connect different 
