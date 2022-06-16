@@ -30,6 +30,54 @@ Algorithm effectiveness measures
 
  - Space analyzes: 1 unit(word) per assigning
 
+https://www.youtube.com/watch?v=V5-7GzOfADQ&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=74
+
+Knuth-Morris-Pratt (KMP) String Matching Algorithm - used for string pattern matching 
+
+string: a b c d e f g h 
+
+pattern: d e f
+
+len(pattern) = m
+len(string) = n
+
+Basic algorithm (O(n * m):
+loop {
+ if (string[i] = pattern[j]) {
+  i++;
+  j++;
+ } else {
+  i++;
+  j = 0;
+ }
+}
+
+The problem is when u have aaaaaaab string and aaaab pattern(u will start from the second 'a' when a 'b' from the string 
+occurs). 
+
+So the main idea of the KMP algorithm is to check whether some preffix of the string occurs during the string
+
+KMP: O(n + m)
+
+
+https://www.youtube.com/watch?v=qQ8vS2btsxI&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=75
+Rabin-Karp string matching algorithm:
+
+Core idea - convert both pattern and string into a numeric value (hashcode most likely)
+
+Spurious hit - when numbers match, but pattern does not match with substring
+
+O(mn)
+Without spurious hits: O(n - m) - to avoid it take strong hash function
+
+
+https://www.youtube.com/watch?v=jDM6_TnYIqE&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=76
+AVL Tree:
+
+
+
+
+
 
 
 Huffman algorithm allows to reduce a size of the message
