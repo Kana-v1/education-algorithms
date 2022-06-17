@@ -194,6 +194,31 @@ Backtracking - brute force approach (try all solutions and use that one that is 
 
 
 
+https://www.youtube.com/watch?v=jDM6_TnYIqE&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=76
+AVL Tree - balanced binary tree
+
+balance facntor = hight of a left subtree minus hight of a left subtree
+
+bf = hl - hr
+|bf| <= 1
+
+
+If there is an imbalance big tree then u should find out a subtree that has 2 or -2 balance factor and balance it. 
+
+If RLLR item imbalanced tree then take first 2 (RL) as a basic for a subtree and balance it
+
+
+https://www.youtube.com/watch?v=aZjYr87r1b8&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=77
+B Trees and B+ Trees
+
+Index (in the db) - pointer to the table that lives inside a disk (inside a block in the disk)   
+
+sparse index - index to an index ( if table has 1000 rows, u want to make index that will point to some hange of indexes (sparce index 1 = index 1..35 sparse index 2 = index 36..80, etc)
+
+
+
+
+
 
 
 
