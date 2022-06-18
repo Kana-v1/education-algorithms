@@ -216,10 +216,11 @@ Index (in the db) - pointer to the table that lives inside a disk (inside a bloc
 sparse index - index to an index ( if table has 1000 rows, u want to make index that will point to some hange of indexes (sparce index 1 = index 1..35 sparse index 2 = index 36..80, etc)
 
 
+B-Tree - a M-way search tree with some rules 
+In B-Tree there are pointers to an index in each node for each key. 
 
-
-
-
+In B+ Tree only leafs contain pointers to the indexes, so leafs also contain copy of their parents. 
+And also leafs connected to each other like a linked list 
 
 
 
