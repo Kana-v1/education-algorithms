@@ -106,8 +106,197 @@ logn & logn 		sqrt(n) * log2
  
 
 
+https://www.youtube.com/watch?v=V5-7GzOfADQ&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=74
+
+Knuth-Morris-Pratt (KMP) String Matching Algorithm - used for string pattern matching 
+
+string: a b c d e f g h 
+
+pattern: d e f
+
+len(pattern) = m
+len(string) = n
+
+Basic algorithm (O(n * m):
+loop {
+ if (string[i] = pattern[j]) {
+  i++;
+  j++;
+ } else {
+  i++;
+  j = 0;
+ }
+}
+
+The problem is when u have aaaaaaab string and aaaab pattern(u will start from the second 'a' when a 'b' from the string 
+occurs). 
+
+So the main idea of the KMP algorithm is to check whether some preffix of the string occurs during the string
+
+KMP: O(n + m)
 
 
+https://www.youtube.com/watch?v=qQ8vS2btsxI&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=75
+Rabin-Karp string matching algorithm:
+
+Core idea - convert both pattern and string into a numeric value (hashcode most likely)
+
+Spurious hit - when numbers match, but pattern does not match with substring
+
+O(mn)
+Without spurious hits: O(n - m) - to avoid it take strong hash function
+
+
+https://www.youtube.com/watch?v=jDM6_TnYIqE&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=76
+AVL Tree:
+
+
+
+
+
+
+
+Huffman algorithm allows to reduce a size of the message
+How does it work: 
+msg: ABCADDDD
+
+1) calculate how many times each letter occur
+A - 2
+B - 1
+C - 1
+D - 4
+
+2) Create an algorithm from the tree
+		           8
+		          /  \
+        	0 /    \
+		        /      \
+	        4        \
+	      /   \       \
+  	   /	    \ 1     \   1
+     /	      \       \
+	0  /	       2        \
+	  /	      /   \       \
+  /    0 /	      \ 1    \
+	/	     /	        \      \
+	2(A)	 1(B) 	    1(C)    4(D)
+
+So codes:
+
+A - 00
+B - 010
+C - 011
+D - 1
+
+Collect this codes to the message. And u have to send table with codes. 
+
+
+Graph: 
+		
+	1-----2
+	|     |
+	|     |
+	|     |
+	3-----4
+
+Spanning tree:
+	
+	1------2
+	|
+	|
+	|
+	3------4
+
+There are 2 algorithms that allow to find the least cost way from the 1 graph spike to another: 
+
+Prims - choose the least cost way that connected to exists spikes
+Kruskals - choost the least cost way that does not create circular graph
+
+Dijkstra algorithm - allows to find shortest path from one spike of a graph to another
+U get the cheapest road and at the next step get the cheapest point of the last points and get new cheapest way/ 
+
+
+
+	
+
+
+
+Graph Traversal (BFS & DFS)
+
+https://www.youtube.com/watch?v=pcKY4hjDrxk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=61
+
+BFS: take any vertex as first, then visit all vortexes around first vertex in any order and so on. 
+DFS: take any vertex, then exporing next vertex (only 1). If next vertex does not contain children then come back to the 
+previous vertex and continue the exploration of the previous vertex. 
+
+https://www.youtube.com/watch?v=jFZsDDB0-vo&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=62
+Articulation point - if there is a vertex in a graph, which removing will disconnect graph into 2 components than that 
+vertex in called an articulation point 
+
+		
+			1
+		       / \
+		      /   \
+		     4     2
+		      \    /
+		       \  /
+			 3 - articulation point
+		        / \
+		       /   \
+		      7     6
+		      
+		      
+		      
+https://www.youtube.com/watch?v=dQr4wZCiJJ4&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=67
+Hamiltonial cycle -  a cycle that visit each vertex only once. There is always O(n^n), so there is no easy way to run 
+thorugh the Hamiltonial cycle. Cycle does not change if u choose just another entering vertex (1, 2, 3, 1) is same to the 
+(2, 3, 1, 2). Hamiltonial cycle can not exists if there is an articulation point in a graph.
+
+Stack is used for BFS and queue for DFS
+
+Least cost - pick node with the least cost (whereas BFS use the last node and DFS - the first in the queue)
+
+ 
+
+
+
+In a graph it is not a desirable structure. The easies way to remove an articulation point is connect different 
+vertexes with an edge (4 with 7 here, for example)
+
+Usually DFS is used to find out an articulation point. 
+
+
+Backtracking - brute force approach (try all solutions and use that one that is suitable for u)
+
+
+
+https://www.youtube.com/watch?v=jDM6_TnYIqE&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=76
+AVL Tree - balanced binary tree
+
+balance facntor = hight of a left subtree minus hight of a left subtree
+
+bf = hl - hr
+|bf| <= 1
+
+
+If there is an imbalance big tree then u should find out a subtree that has 2 or -2 balance factor and balance it. 
+
+If RLLR item imbalanced tree then take first 2 (RL) as a basic for a subtree and balance it
+
+
+https://www.youtube.com/watch?v=aZjYr87r1b8&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=77
+B Trees and B+ Trees
+
+Index (in the db) - pointer to the table that lives inside a disk (inside a block in the disk)   
+
+sparse index - index to an index ( if table has 1000 rows, u want to make index that will point to some hange of indexes (sparce index 1 = index 1..35 sparse index 2 = index 36..80, etc)
+
+
+B-Tree - a M-way search tree with some rules 
+In B-Tree there are pointers to an index in each node for each key. 
+
+In B+ Tree only leafs contain pointers to the indexes, so leafs also contain copy of their parents. 
+And also leafs connected to each other like a linked list 
 
 
 
