@@ -29,6 +29,82 @@ Algorithm effectiveness measures
 
 
  - Space analyzes: 1 unit(word) per assigning
+ 
+O big-oh - upper bound
+
+Ω big-omega - lower bound
+
+T theta - average bound
+
+Properties of Asymptotic notations:
+
+- if f(n) is O(g(n)) then a * f(n) is O(g(n))
+e.g. f(n) = 2 * n^2 + 5 is O(n^2)
+then 7 * f(n) = 7 * (2 * n^2 + 5) is O(n^2)
+
+- if f(n) is given than f(n) is O(f(n))
+e.g. f(n) = n^2 is O(n^2)
+
+- if f(n) is O(g(n)) and g(n) is O(h(n)) 
+then f(n) is O(h(n))
+e.g. f(n) = n and g(n) = n^2 and h(n) = n^3
+then n is O(n^2) and n^2 is O(n^2) 
+then n is O(n^3)
+
+- if f(n) is O(g(n)) than g(n) is T(f(n))
+e.g. f(n) = n^2  g(n) = n^2 
+f(n) = T(n^2)
+g(n) = T(n^2)
+
+
+log x^2 = 2logx
+log ab = log a + log b
+
+a^LOGc(b) = b^LOGc(a) 
+a^b = n than b = LOGa(n)
+
+f(n) = n^2 * log(n)  	g(n) = n * (log(n))^10  		Which one is better?
+
+ log(n^2 * log(n)) 	       log(n * (log(n))^10)
+ 
+ log(n^2) + log(log(n))	log(n) + log(log(log(n)^10) 	 
+ 
+ 
+ 2 * log(n) + log(log(n))	log(n) + 10 * log(log(n))
+ 
+ 
+ 
+ f(n) = 3n^(sqrt(n)) 		g(n) = 2^(sqrt(n) * log(n))
+ 
+ 
+3n^(sqrt(n))		2^(log(n)^sqrt(n))
+
+
+3n^(sqrt(n))		(n^sqrt(n))^log2
+
+
+3n^(sqrt(n))		n^sqrt(n) 
+
+
+
+f(n) = n^logn		g(n) = 2^sqrt(n)
+
+
+log(n^logn)		log(2^sqrt(n))
+
+
+logn & logn 		sqrt(n) * log2
+
+(logn)^2			sqrt(n)
+
+2 * log*(logn) 		1/2 * logn 
+
+
+
+ 
+ 
+ 
+
 
 
 
