@@ -1,11 +1,18 @@
-package solutions
+/*
+ * @lc app=leetcode id=504 lang=golang
+ *
+ * [504] Base 7
+ */
+
+// @lc code=start
+package main
 
 import (
 	"fmt"
 	"math"
 )
 
-func Alg(num int) string {
+func convertToBase7(num int) string {
 	if num == 0 {
 		return "0"
 	}
@@ -25,6 +32,7 @@ func Alg(num int) string {
 	if num > 0 {
 		return res
 	}
-	
 	return fmt.Sprintf("-%v", res)
 }
+
+// @lc code=end
