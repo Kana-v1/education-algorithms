@@ -1,6 +1,13 @@
-package solutions
+/*
+ * @lc app=leetcode id=695 lang=golang
+ *
+ * [695] Max Area of Island
+ */
 
-func Alg(grid [][]int) int {
+// @lc code=start
+package main
+
+func maxAreaOfIsland(grid [][]int) int {
 	res := 0
 
 	excluded := make(map[int]bool)
@@ -29,12 +36,12 @@ func getElsAround(indexes []int, i, rowLen int, exclude *map[int]bool) int {
 	counter := 1
 
 	// right
-	if _, ok := (*exclude)[i+1]; !ok && (i+1)%rowLen != 0 && i+1 < len(indexes) && indexes[i+1] == 1 {
+	if _, ok := (*exclude)[i+1]; !ok && i+1 < len(indexes) && indexes[i+1] == 1 {
 		counter += getElsAround(indexes, i+1, rowLen, exclude)
 	}
 
 	// left
-	if _, ok := (*exclude)[i-1]; !ok && i%rowLen != 0 && indexes[i-1] == 1 {
+	if _, ok := (*exclude)[i-1]; !ok && i > 1 && indexes[i-1] == 1 {
 		counter += getElsAround(indexes, i-1, rowLen, exclude)
 	}
 
@@ -50,3 +57,5 @@ func getElsAround(indexes []int, i, rowLen int, exclude *map[int]bool) int {
 
 	return counter
 }
+
+// @lc code=end
