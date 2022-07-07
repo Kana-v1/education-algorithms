@@ -1,52 +1,38 @@
 package solutions
 
-func Alg(grid [][]int) int {
-	res := 0
+import "math"
 
-	excluded := make(map[int]bool)
+func Alg(days []int, costs []int) int {
+	isTravelled := make([]bool, days[len(days)-1]+1)
 
-	indexes := make([]int, 0)
-
-	for i := range grid {
-		indexes = append(indexes, grid[i]...)
+	for _, day := range days {
+		isTravelled[day] = true
 	}
 
-	for i := range indexes {
-		if _, ok := excluded[i]; !ok && indexes[i] == 1 {
-			buf := getElsAround(indexes, i, len(grid[0]), &excluded)
+	prices := make([]int, days[len(days)-1]+1)
 
-			if buf > res {
-				res = buf
+	for i := 1; i < len(prices); i++ {
+		if !isTravelled[i] {
+			prices[i] = prices[i-1]
+			continue
+		}
+
+		prices[i] = costs[0] + prices[i-1]
+
+		w := 0
+		m := 0
+
+		if i >= 7 {
+			w = i - 7
+
+			if i >= 30 {
+				m = i - 30
 			}
 		}
+
+		prices[i] = int(math.Min(float64(prices[i]), float64(costs[1]+prices[w])))
+		prices[i] = int(math.Min(float64(prices[i]), float64(costs[2]+prices[m])))
 	}
 
-	return res
-}
-
-func getElsAround(indexes []int, i, rowLen int, exclude *map[int]bool) int {
-	(*exclude)[i] = true
-	counter := 1
-
-	// right
-	if _, ok := (*exclude)[i+1]; !ok && (i+1)%rowLen != 0 && i+1 < len(indexes) && indexes[i+1] == 1 {
-		counter += getElsAround(indexes, i+1, rowLen, exclude)
-	}
-
-	// left
-	if _, ok := (*exclude)[i-1]; !ok && i%rowLen != 0 && indexes[i-1] == 1 {
-		counter += getElsAround(indexes, i-1, rowLen, exclude)
-	}
-
-	// down
-	if _, ok := (*exclude)[i+rowLen]; !ok && i+rowLen < len(indexes) && indexes[i+rowLen] == 1 {
-		counter += getElsAround(indexes, i+rowLen, rowLen, exclude)
-	}
-
-	// up
-	if _, ok := (*exclude)[i-rowLen]; !ok && i-rowLen >= 0 && indexes[i-rowLen] == 1 {
-		counter += getElsAround(indexes, i-rowLen, rowLen, exclude)
-	}
-
-	return counter
+	return prices[len(prices)-1]
 }

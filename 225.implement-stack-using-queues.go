@@ -10,7 +10,7 @@ type MyStack struct {
 	vals []int
 }
 
-func Constructor() MyStack {
+func constructor() MyStack {
 	return MyStack{
 		vals: make([]int, 0),
 	}
