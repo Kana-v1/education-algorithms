@@ -1,4 +1,4 @@
-package solutions
+package main
 
 func Alg(board [][]byte, word string) bool {
 	if len(board) == 0 {
