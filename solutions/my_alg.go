@@ -1,98 +1,145 @@
 package solutions
 
-func Alg(board [][]byte, word string) bool {
-	if len(board) == 0 {
-		return false
-	}
+import (
+	"fmt"
+)
 
-	if len(word) == 0 {
-		return true
-	}
-
-	oneLineBoard := make([]byte, 0)
-
-	for _, b := range board {
-		oneLineBoard = append(oneLineBoard, b...)
-	}
-
-	excluded := make(map[int]bool)
-	positions := make([]int, 0)
-
-	for i, ch := range oneLineBoard {
-		if ch == word[0] {
-			positions = append(positions, i)
-		}
-	}
-
-	for i, position := range positions {
-		result := true
-		excluded = make(map[int]bool)
-
-		for j := range word {
-			letterFound, nextPosition := findLetter(&excluded, oneLineBoard, position, word[j], len(board[0]))
-			if !letterFound {
-				if i == len(positions)-1 {
-					return false
-				}
-
-				result = false
-				break
-			}
-
-			position = nextPosition
-		}
-
-		if result {
-			return result
-		}
-	}
-
-	return len(positions) > 0
+type ID struct {
+	row    int
+	column int
 }
 
-func findLetter(excluded *map[int]bool, board []byte, position int, letterToFind byte, rowLen int) (bool, int) {
-	lettersPosition := -1
+type Vertex struct {
+	id       ID
+	value    int
+	distance int
+	points   []int
+	wasUsed  bool
+}
 
+func Alg(triangle [][]int) int {
+	vertexes := make(map[ID]*Vertex)
+
+	path := make([]int, 0)
+
+	for {
+		shortestVertex := vertexes[getShortest(vertexes)]
+
+		// if all vertexes have been visited
+		if len(vertexes) != 0 && shortestVertex == nil {
+			break
+		}
+
+		// if it is the first vertex
+		if len(vertexes) == 0 && shortestVertex == nil {
+			id := NewID(0, 0)
+			shortestVertex = &Vertex{
+				id:       NewID(0, 0),
+				value:    triangle[0][0],
+				distance: triangle[0][0],
+				points:   []int{triangle[0][0]},
+				wasUsed:  true,
+			}
+
+			vertexes[id] = shortestVertex
+		}
+
+		rowNumber := shortestVertex.id.row
+
+		// if it is not the last row
+		if rowNumber < len(triangle)-1 {
+			columns := getNextStepsRange(shortestVertex.id.column, len(triangle[rowNumber]))
+			for _, nextVertexColumn := range columns {
+				nextVertexRow := rowNumber + 1
+				newVertex := defineDistance(shortestVertex, triangle[nextVertexRow][nextVertexColumn], nextVertexRow, nextVertexColumn, vertexes)
+				vertexes[newVertex.id] = newVertex
+			}
+		}
+	}
+
+	distance := 0
+	wasChanged := false
+
+	for _, vertex := range vertexes {
+		// if it is the last row
+		if vertex.id.row == len(triangle)-1 {
+			if !wasChanged || (vertex.distance < distance) {
+				distance = vertex.distance
+				path = vertex.points
+
+				wasChanged = true
+			}
+		}
+	}
+
+	fmt.Println(path)
+	return distance
+}
+
+func getNextStepsRange(index, rowLen int) []int {
+	switch index {
+	case 0:
+		return []int{0, 1}
+	case rowLen - 1:
+		return []int{index, rowLen}
+	default:
+		return []int{index, index + 1}
+	}
+}
+
+func defineDistance(vertex *Vertex, point, row, column int, vertexes map[ID]*Vertex) *Vertex {
 	defer func() {
-		(*excluded)[lettersPosition] = true
+		vertex.wasUsed = true
 	}()
 
-	if _, ok := (*excluded)[position]; !ok && board[position] == letterToFind {
-		lettersPosition = position
-		return true, lettersPosition
-	}
-
-	// left
-	if _, ok := (*excluded)[position-1]; !ok && position > 0 {
-		if board[position-1] == letterToFind {
-			lettersPosition = position - 1
-			return true, lettersPosition
+	id := NewID(row, column)
+	if existingVertex, ok := vertexes[id]; ok {
+		currentDistance := vertex.distance + point
+		if existingVertex.distance < currentDistance {
+			return existingVertex
 		}
 	}
 
-	// right
-	if _, ok := (*excluded)[position+1]; !ok && position%rowLen < rowLen-1 {
-		if board[position+1] == letterToFind {
-			lettersPosition = position + 1
-			return true, lettersPosition
+	path := append([]int{}, vertex.points...)
+
+	return &Vertex{
+		id:       id,
+		value:    point,
+		distance: vertex.distance + point,
+		points:   append(path, point),
+		wasUsed:  false,
+	}
+}
+
+func getShortest(vertexes map[ID]*Vertex) (id ID) {
+	for _, vertex := range vertexes {
+		if !vertex.wasUsed {
+			vertex.wasUsed = true
+			return vertex.id
 		}
 	}
 
-	// down
-	if _, ok := (*excluded)[position+rowLen]; !ok && position+rowLen < len(board) {
-		if board[position+rowLen] == letterToFind {
-			lettersPosition = position + rowLen
-			return true, lettersPosition
+	return ID{-1, -1}
+
+	// the code below does not work for this task coz
+	// in this task we have to find the minimum value of the distance
+	// rather than the closest to 0
+	distance := 0
+	isFirst := true
+	id = ID{-1, -1}
+
+	for _, vertex := range vertexes {
+		if (distance > vertex.distance || isFirst) && !vertex.wasUsed {
+			distance = vertex.distance
+			id = vertex.id
+
+			isFirst = false
 		}
 	}
 
-	// up
-	if _, ok := (*excluded)[position-rowLen]; !ok && position-rowLen >= 0 {
-		if board[position-rowLen] == letterToFind {
-			lettersPosition = position - rowLen
-			return true, lettersPosition
-		}
-	}
+	return id
+}
 
-	return false, lettersPosition
+func NewID(row, column int) ID {
+	return ID{row, column}
 }
