@@ -1,4 +1,11 @@
-package solutions
+/*
+ * @lc app=leetcode id=227 lang=golang
+ *
+ * [227] Basic Calculator II
+ */
+
+// @lc code=start
+package main
 
 import (
 	"strconv"
@@ -6,7 +13,7 @@ import (
 	"unicode"
 )
 
-func Alg(s string) int {
+func calculate(s string) int {
 	s = strings.ReplaceAll(s, " ", "")
 	symbols := map[string]bool{
 		"+": true,
@@ -215,3 +222,4 @@ func findTheEndOfMultiplication(s string, startIndex int) int {
 
 	return len(s)
 }
+// @lc code=end
