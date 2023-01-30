@@ -2,17 +2,19 @@ package main
 
 import (
 	"fmt"
-	countingsort "introduction-to-algorithms/counting_sort"
+	rnd "introduction-to-algorithms/randomized_select"
 )
 
 func main() {
-	arr := []int{9, 3, 7, 5, 3, 6, 4, 3, 8, 2}
+	// arr := []int{1, 2, 3, 4, 5, 6, 7}
+	arr := []int{9, 3, 7, 5, 6, 4, 8, 2}
 	// arr := []int{1, 7, 4, 3, 5, 10}
 
 	fmt.Println(arr)
 
 	// fmt.Println(mergesort.Merge_sort(arr))
 	// quicksort.Quicksort(&arr, 0, len(arr)-1)
+	// fmt.Println(arr)
 
-	fmt.Println(countingsort.CountringSort(arr))
+	fmt.Println(rnd.RandomizedSelect(arr, 0, len(arr)-1, 2))
 }
