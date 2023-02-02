@@ -21,3 +21,26 @@ O-notation - upper bound on the asymptomic notation
 Matrix multiplication - divide-and-conquer
 
 Open addressing - the family of methods that allow resolve hash function collisions 
+get ith element from the statistics order (so you have array of distinct numbers, and you need ith element from this array in sorted view) - randomized select
+
+index of the matrix that is stored in the single-direction array:
+    - starting index = s
+    - emenents in the row = n
+    - elements in the column = m
+
+row-major order: s + (n * (i - s)) + (j - s) 
+
+M = 1 2 3   
+    4 5 6   
+
+M[1, 2] = 0 + (3 * (1 - 0)) + (2 - 0) = 5
+
+column-major order: s + (m * (j - s)) + (i - s)
+
+    1 4
+M = 2 5
+    3 6
+
+M[1, 2] = 0 + (2 * (2 - 0)) + (1 - 0) = 5
+
+Left-child, right-sibling binary tree - easy to code representation of the random-number-of-childs binary tree
