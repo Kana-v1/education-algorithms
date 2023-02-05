@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	rnd "introduction-to-algorithms/randomized_select"
+	longestcommonsubsequence "introduction-to-algorithms/longest_common_subsequence"
 )
 
 func main() {
@@ -16,5 +16,12 @@ func main() {
 	// quicksort.Quicksort(&arr, 0, len(arr)-1)
 	// fmt.Println(arr)
 
-	fmt.Println(rnd.RandomizedSelect(arr, 0, len(arr)-1, 2))
+	// fmt.Println(rnd.RandomizedSelect(arr, 0, len(arr)-1, 2))
+
+	str := "abcd"
+	substr := "bd"
+
+	fmt.Println()
+	fmt.Printf("lcs = %v" ,longestcommonsubsequence.Longest(substr, str))
+
 }

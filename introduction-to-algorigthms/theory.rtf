@@ -44,3 +44,13 @@ M = 2 5
 M[1, 2] = 0 + (2 * (2 - 0)) + (1 - 0) = 5
 
 Left-child, right-sibling binary tree - easy to code representation of the random-number-of-childs binary tree
+
+
+For using dynamic programming, subproblems have to be independent. For example, if you need to find the shortest and the longest paths:
+you can divide this problem (A->B) into 2 subproblems: the shortest path A -> C, C -> B. So the shortest A -> B == A -> C -> B
+However, the longest path A -> B != A -> C -> B
+
+The subproblems are independent == they don't share resources
+
+
+LCS (longest common subsequence) - X = (A;B;C;B;D;A;B), Y = (B;D;C;A;B;A). LCS = (B; C; B; A)
