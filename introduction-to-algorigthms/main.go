@@ -1,6 +1,8 @@
 package main
 
-import minimumspanningtree "introduction-to-algorithms/minimum_spanning_tree"
+import (
+	shortestpaths "introduction-to-algorithms/shortest-paths"
+)
 
 func main() {
 	// arr := []int{1, 2, 3, 4, 5, 6, 7}
@@ -21,20 +23,22 @@ func main() {
 	// fmt.Println()
 	// fmt.Printf("lcs = %v" ,longestcommonsubsequence.Longest(substr, str))
 
-	graph := [][]int{
-		{0, 1, 2},
-		{0, 3, 1, 4},
-		{0, 0, 0, 2, 1},
-		{0, 0, 0, 2},
-		{0, 0, 0, 0, 0, 5},
-	}
+	// graph := [][]int{
+	// 	{0, 1, 2},
+	// 	{0, 3, 1, 4},
+	// 	{0, 0, 0, 2, 1},
+	// 	{0, 0, 0, 2},
+	// 	{0, 0, 0, 0, 0, 5},
+	// }
 
-	edges := minimumspanningtree.MakeEdged(graph)
+	// edges := minimumspanningtree.MakeEdged(graph)
 
-	kruskals := &minimumspanningtree.Kruskals{
-		Vertices: 6,
-		Edges:    edges,
-	}
+	// kruskals := &minimumspanningtree.Kruskals{
+	// 	Vertices: 6,
+	// 	Edges:    edges,
+	// }
 
-	kruskals.GetTree()
+	// kruskals.GetTree()
+
+	shortestpaths.TestBellmanFordAlg()
 }
