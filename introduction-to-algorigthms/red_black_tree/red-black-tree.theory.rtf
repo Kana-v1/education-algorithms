@@ -1,0 +1,44 @@
+properties:
+  - every node is either black or red
+  - the root is black
+  - every leaf (NIL) is black
+  - if a node is red, then both its children are black
+  - for each node, all simple paths from the node to descendant leaves
+    contain the same number of black nodes
+
+
+	
+				--------							   	
+    			|      |
+    			|  y   |
+    			|      |
+				--------
+			 /	      \		
+			/          \
+	--------            c
+   	|      | 		     
+   	|  x   |
+   	|      |
+	--------
+	 /  \
+    /    \
+   a      b
+	LEFT ROTATE ^ 		RIGHT ROTATE |
+				|					 |
+				|					 v
+	
+				--------							   	
+    			|      |
+    			|  x   |
+    			|      |
+				--------
+				 /		\		 					
+				/		 \	
+			   a		--------
+						|      |
+						|  y   |
+						|      |
+						--------
+						 /   \
+						/     \
+					   b	   c

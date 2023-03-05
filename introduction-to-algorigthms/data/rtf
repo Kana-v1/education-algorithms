@@ -1,0 +1,14 @@
+browser calling (many-to-many) platrofm with the chat and screen recording. 
+
+env: Kubernetes
+frontend: ReactJs + Typescript
+backend: Go(check WebRTC), 
+
+features: 
+- video recording
+- list of recordings (share button?) -> shrink video resolution as a microservice, thumbnail service
+- chat - for every user during the call (regardless signed or unsigned); websockets
+- video call UI has to have 2 blocks: field with the connected users, control panel(drop the call, check participants, open the chat)
+- main page has to have panel that allows to create meetings (scheduling or for now), and the list of created rooms. If you wanna add users, you should invite them, and they'll receive a new meeting in their meetings list 
+
+google what is user story and create your own

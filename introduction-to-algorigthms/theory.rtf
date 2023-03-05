@@ -21,7 +21,8 @@ O-notation - upper bound on the asymptomic notation
 Matrix multiplication - divide-and-conquer
 
 Open addressing - the family of methods that allow resolve hash function collisions 
-get ith element from the statistics order (so you have array of distinct numbers, and you need ith element from this array in sorted view) - randomized select
+
+get ith element from the statistics order (so you have array of distinct numbers, and you need ith element from this array in sorted view) - randomized select - O(n) or augmented red-black tree - O(lgn)
 
 index of the matrix that is stored in the single-direction array:
     - starting index = s
@@ -52,5 +53,21 @@ However, the longest path A -> B != A -> C -> B
 
 The subproblems are independent == they don't share resources
 
-
 LCS (longest common subsequence) - X = (A;B;C;B;D;A;B), Y = (B;D;C;A;B;A). LCS = (B; C; B; A)
+
+
+Greedy algorithm - make a choice that looks best for at the moment
+
+Select activities - greedy choice. Select the best mutual compatible activities for the limited time
+
+You should use greedy algorithm if the problem has 2 properties: 
+1) You can assemble a globally optimal solution by making locally optimal (greedy) choices
+2) A problem  exhibits  optimal  substructure  if an optimal solution to the problem contains within it optimal solutions to subproblems
+
+Huffman codes compresses data well
+
+
+Graph strongly connected components - set of vertices (each of that is the part of parent graph) that are reachable from each other 
+
+minimum-spanning-tree problem - find a way to connect all vertices in the connected graph. Kruskal's  algorithm  and  Prim's  algorithm solve this problem, both take E * lg V, where E - set of pins, V - set of possible interconnections between pins
+
