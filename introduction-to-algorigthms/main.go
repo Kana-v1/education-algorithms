@@ -1,7 +1,7 @@
 package main
 
 import (
-	shortestpaths "introduction-to-algorithms/shortest-paths"
+	stringmatching "introduction-to-algorithms/string_matching"
 )
 
 func main() {
@@ -40,5 +40,7 @@ func main() {
 
 	// kruskals.GetTree()
 
-	shortestpaths.TestBellmanFordAlg()
+	// shortestpaths.TestBellmanFordAlg()
+
+	stringmatching.Test()
 }
