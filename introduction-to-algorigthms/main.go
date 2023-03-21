@@ -1,7 +1,7 @@
 package main
 
 import (
-	stringmatching "introduction-to-algorithms/string_matching"
+	maximumflow "introduction-to-algorithms/maximum_flow"
 )
 
 func main() {
@@ -41,6 +41,5 @@ func main() {
 	// kruskals.GetTree()
 
 	// shortestpaths.TestBellmanFordAlg()
-
-	stringmatching.Test()
+	maximumflow.TestFordFulkerson()
 }
